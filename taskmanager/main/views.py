@@ -4,7 +4,7 @@ from .forms import TaskForm
 
 def index(request):
     tasks = Task.objects.order_by('-id')
-    return render(request, 'main/index.html', {'title':'Главная страница сайта', 'tasks':tasks})
+    return render(request, 'main/index.html', {'title':'Home page of the site', 'tasks':tasks})
 
 def about(request):
     return render(request,'main/about.html')
@@ -18,7 +18,7 @@ def create(request):
             form.save()
             return redirect('home')
         else:
-            error = 'Не правильная форма'
+            error = 'Wrong shape'
     form = TaskForm()
     context = {
         'form': form,
