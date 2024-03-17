@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Main page
+    </h1>
+    {% if content %}
+        {% for row in content %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ row.title }}</h3>
+                <p>{{ row.content }}</p>
+                <span>{{ row.createdAt }}</span>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>
+            We have no entries
+        </p>
+    {% endif %}
+{% endblock %}
