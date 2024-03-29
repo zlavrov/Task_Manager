@@ -33,7 +33,7 @@ def update(request, id):
     task = Task.objects.get(id = id)
     form = TaskForm(instance=task)
     if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
+        form = TaskForm(request.POST, instance = task)
         if form.is_valid():
             form.save()
             return redirect('home')
